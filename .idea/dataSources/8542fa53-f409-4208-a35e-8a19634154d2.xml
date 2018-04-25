@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="university@localhost">
+  <database-model serializer="dbm" rdbms="POSTGRES" format-version="4.0">
+    <root id="1"/>
+    <database id="2" parent="1" name="university">
+      <ObjectId>16823</ObjectId>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </database>
+    <schema id="3" parent="2" name="public">
+      <ObjectId>2200</ObjectId>
+      <IntrospectionTimestamp>2018-04-09.23:06:14.243</IntrospectionTimestamp>
+      <IntrospectionStateNumber>5940</IntrospectionStateNumber>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="4" parent="2" name="pg_catalog">
+      <ObjectId>11</ObjectId>
+    </schema>
+    <schema id="5" parent="2" name="pg_toast">
+      <ObjectId>99</ObjectId>
+    </schema>
+    <schema id="6" parent="2" name="pg_temp_1">
+      <ObjectId>11848</ObjectId>
+    </schema>
+    <schema id="7" parent="2" name="pg_toast_temp_1">
+      <ObjectId>11849</ObjectId>
+    </schema>
+    <schema id="8" parent="2" name="information_schema">
+      <ObjectId>12381</ObjectId>
+    </schema>
+    <table id="9" parent="3" name="courses">
+      <ObjectId>16920</ObjectId>
+      <StateNumber>5802</StateNumber>
+    </table>
+    <table id="10" parent="3" name="enroll">
+      <ObjectId>16933</ObjectId>
+      <StateNumber>5789</StateNumber>
+    </table>
+    <table id="11" parent="3" name="faculties">
+      <ObjectId>16831</ObjectId>
+      <StateNumber>5799</StateNumber>
+    </table>
+    <table id="12" parent="3" name="students">
+      <ObjectId>16824</ObjectId>
+      <StateNumber>5937</StateNumber>
+    </table>
+    <table id="13" parent="3" name="title">
+      <ObjectId>16975</ObjectId>
+      <StateNumber>5806</StateNumber>
+    </table>
+    <table id="14" parent="3" name="users">
+      <ObjectId>17052</ObjectId>
+      <StateNumber>5937</StateNumber>
+    </table>
+    <column id="15" parent="9" name="course_id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5781</StateNumber>
+    </column>
+    <column id="16" parent="9" name="description">
+      <Position>2</Position>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5781</StateNumber>
+    </column>
+    <column id="17" parent="9" name="level">
+      <Position>3</Position>
+      <DataType>char(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5781</StateNumber>
+    </column>
+    <column id="18" parent="9" name="instructor">
+      <Position>4</Position>
+      <DataType>integer|0</DataType>
+      <StateNumber>5781</StateNumber>
+    </column>
+    <column id="19" parent="9" name="semester">
+      <Position>5</Position>
+      <DataType>varchar(50)|0</DataType>
+      <StateNumber>5802</StateNumber>
+    </column>
+    <index id="20" parent="9" name="courses_pkey">
+      <ObjectId>16926</ObjectId>
+      <ColNames>course_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="21" parent="9" name="courses_pkey">
+      <ObjectId>16927</ObjectId>
+      <ColNames>course_id</ColNames>
+      <UnderlyingIndexName>courses_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="22" parent="9" name="instructor_fk">
+      <ObjectId>16957</ObjectId>
+      <ColNames>instructor</ColNames>
+      <RefTableName>faculties</RefTableName>
+      <RefKeyName>faculties_pkey</RefKeyName>
+      <RefColNames>faculty_id</RefColNames>
+    </foreign-key>
+    <column id="23" parent="10" name="student_id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5783</StateNumber>
+    </column>
+    <column id="24" parent="10" name="course_id">
+      <Position>2</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5783</StateNumber>
+    </column>
+    <column id="25" parent="10" name="grade">
+      <Position>3</Position>
+      <DataType>char(2)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5800</StateNumber>
+    </column>
+    <index id="26" parent="10" name="enroll_pkey">
+      <ObjectId>16936</ObjectId>
+      <ColNames>student_id
+course_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="27" parent="10" name="enroll_pkey">
+      <ObjectId>16937</ObjectId>
+      <ColNames>student_id
+course_id</ColNames>
+      <UnderlyingIndexName>enroll_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="28" parent="10" name="enroll_student_id_fkey">
+      <ObjectId>16938</ObjectId>
+      <ColNames>student_id</ColNames>
+      <RefTableName>students</RefTableName>
+      <RefKeyName>students_pkey</RefKeyName>
+      <RefColNames>student_id</RefColNames>
+    </foreign-key>
+    <foreign-key id="29" parent="10" name="enroll_course_id_fkey">
+      <ObjectId>16943</ObjectId>
+      <ColNames>course_id</ColNames>
+      <RefTableName>courses</RefTableName>
+      <RefKeyName>courses_pkey</RefKeyName>
+      <RefColNames>course_id</RefColNames>
+    </foreign-key>
+    <column id="30" parent="11" name="faculty_id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5770</StateNumber>
+    </column>
+    <column id="31" parent="11" name="name">
+      <Position>2</Position>
+      <DataType>char(50)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5770</StateNumber>
+    </column>
+    <column id="32" parent="11" name="date_of_birth">
+      <Position>3</Position>
+      <DataType>date|0</DataType>
+      <StateNumber>5770</StateNumber>
+    </column>
+    <column id="33" parent="11" name="address">
+      <Position>4</Position>
+      <DataType>char(50)|0</DataType>
+      <StateNumber>5770</StateNumber>
+    </column>
+    <column id="34" parent="11" name="email">
+      <Position>5</Position>
+      <DataType>text|0</DataType>
+      <StateNumber>5770</StateNumber>
+    </column>
+    <column id="35" parent="11" name="level">
+      <Position>6</Position>
+      <DataType>char(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5770</StateNumber>
+    </column>
+    <index id="36" parent="11" name="faculties_pkey">
+      <ObjectId>16837</ObjectId>
+      <ColNames>faculty_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="37" parent="11" name="faculties_email_key">
+      <ObjectId>16839</ObjectId>
+      <ColNames>email</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="38" parent="11" name="faculties_pkey">
+      <ObjectId>16838</ObjectId>
+      <ColNames>faculty_id</ColNames>
+      <UnderlyingIndexName>faculties_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="39" parent="11" name="faculties_email_key">
+      <ObjectId>16840</ObjectId>
+      <ColNames>email</ColNames>
+      <UnderlyingIndexName>faculties_email_key</UnderlyingIndexName>
+    </key>
+    <column id="40" parent="12" name="student_id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5769</StateNumber>
+    </column>
+    <column id="41" parent="12" name="name">
+      <Position>2</Position>
+      <DataType>char(50)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5769</StateNumber>
+    </column>
+    <column id="42" parent="12" name="date_of_birth">
+      <Position>3</Position>
+      <DataType>date|0</DataType>
+      <StateNumber>5785</StateNumber>
+    </column>
+    <column id="43" parent="12" name="address">
+      <Position>4</Position>
+      <DataType>char(50)|0</DataType>
+      <StateNumber>5769</StateNumber>
+    </column>
+    <column id="44" parent="12" name="email">
+      <Position>5</Position>
+      <DataType>char(80)|0</DataType>
+      <StateNumber>5769</StateNumber>
+    </column>
+    <column id="45" parent="12" name="level">
+      <Position>6</Position>
+      <DataType>char(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5769</StateNumber>
+    </column>
+    <index id="46" parent="12" name="students_pkey">
+      <ObjectId>16827</ObjectId>
+      <ColNames>student_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="47" parent="12" name="students_email_key">
+      <ObjectId>16829</ObjectId>
+      <ColNames>email</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="48" parent="12" name="students_pkey">
+      <ObjectId>16828</ObjectId>
+      <ColNames>student_id</ColNames>
+      <UnderlyingIndexName>students_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="49" parent="12" name="students_email_key">
+      <ObjectId>16830</ObjectId>
+      <ColNames>email</ColNames>
+      <UnderlyingIndexName>students_email_key</UnderlyingIndexName>
+    </key>
+    <column id="50" parent="13" name="name">
+      <Position>1</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5806</StateNumber>
+    </column>
+    <column id="51" parent="13" name="abbreviation">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+      <StateNumber>5806</StateNumber>
+    </column>
+    <index id="52" parent="13" name="title_pkey">
+      <ObjectId>16978</ObjectId>
+      <ColNames>name</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="53" parent="13" name="title_pkey">
+      <ObjectId>16979</ObjectId>
+      <ColNames>name</ColNames>
+      <UnderlyingIndexName>title_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="54" parent="14" name="email">
+      <Position>1</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5937</StateNumber>
+    </column>
+    <column id="55" parent="14" name="password">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5937</StateNumber>
+    </column>
+    <index id="56" parent="14" name="users_email_pk">
+      <ObjectId>17063</ObjectId>
+      <ColNames>email</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="57" parent="14" name="users_email_pk">
+      <ObjectId>17064</ObjectId>
+      <ColNames>email</ColNames>
+      <UnderlyingIndexName>users_email_pk</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>
